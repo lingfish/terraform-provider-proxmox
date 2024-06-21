@@ -1,3 +1,9 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package test
 
 import (
@@ -113,14 +119,19 @@ func (e *Environment) AddTemplateVars(vars map[string]any) {
 	}
 }
 
+// RandomVMID returns a random VM ID.
+func (e *Environment) RandomVMID() int {
+	return gofakeit.IntRange(100_000, 1_000_000)
+}
+
 // RenderConfig renders the given configuration with for the current test environment using template engine.
 func (e *Environment) RenderConfig(cfg string) string {
 	tmpl, err := template.New("config").Parse("{{.ProviderConfig}}" + cfg)
 	require.NoError(e.t, err)
 
-	e.templateVars["RandomVMID"] = gofakeit.IntRange(100_000, 1_000_000)
-	e.templateVars["RandomVMID1"] = gofakeit.IntRange(100_000, 1_000_000)
-	e.templateVars["RandomVMID2"] = gofakeit.IntRange(100_000, 1_000_000)
+	e.templateVars["RandomVMID"] = e.RandomVMID()
+	e.templateVars["RandomVMID1"] = e.RandomVMID()
+	e.templateVars["RandomVMID2"] = e.RandomVMID()
 
 	var buf bytes.Buffer
 	err = tmpl.Execute(&buf, e.templateVars)
