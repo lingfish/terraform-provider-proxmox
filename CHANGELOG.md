@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.60.1](https://github.com/bpg/terraform-provider-proxmox/compare/v0.60.0...v0.60.1) (2024-06-22)
+
+
+### Bug Fixes
+
+* **lxc:** use default rootfs size (4Gb) prevents creation of mount points ([#1398](https://github.com/bpg/terraform-provider-proxmox/issues/1398)) ([4a8bf8d](https://github.com/bpg/terraform-provider-proxmox/commit/4a8bf8da27295d6fcca4be8cae05aedfe48d7cf3))
+
+
+### Miscellaneous
+
+* **deps:** update module github.com/brianvoe/gofakeit/v7 (v7.0.3 → v7.0.4) ([#1405](https://github.com/bpg/terraform-provider-proxmox/issues/1405)) ([c926484](https://github.com/bpg/terraform-provider-proxmox/commit/c926484249af93b75c64d2acba3e1460f16f35da))
+* **vm:** fix regression after storage devices refactoring ([#1399](https://github.com/bpg/terraform-provider-proxmox/issues/1399)) ([5d1c8c6](https://github.com/bpg/terraform-provider-proxmox/commit/5d1c8c606d61d91360325228655ccd372848602a))
+* **vm:** refactor storage devices handling from/to API ([#1394](https://github.com/bpg/terraform-provider-proxmox/issues/1394)) ([cc7fc63](https://github.com/bpg/terraform-provider-proxmox/commit/cc7fc63ec1c167344191cd2d3496139747e5c112))
+
 ## [0.60.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.59.1...v0.60.0) (2024-06-14)
 
 
